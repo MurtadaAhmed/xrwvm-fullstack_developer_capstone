@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Best Cars Dealership</title>
+    <!-- CSS and Bootstrap Links from the Capstone skeleton -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <style>
+        /* Custom stylings to match the assignment layout */
+        .contact-card {
+            border-radius: 40px;
+            border: 1px solid #e0e0e0;
+            background-color: #ffffff;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .banner-img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .divider {
+            border-right: 2px solid #e0e0e0;
+            height: 100%;
+            min-height: 200px;
+        }
+        .contact-info-text {
+            color: #3b71ca;
+            text-decoration: none;
+        }
+        .contact-info-text:hover {
+            text-decoration: underline;
+        }
+        .contact-section-title {
+            font-weight: bold;
+            color: #4f4f4f;
+            margin-top: 15px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body style="background-color: #f8f9fa;">
+
+    <!-- Navigation Bar (With Cyan/Teal Styling) -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00bcd4; padding: 15px 30px;">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-3 fw-bold" href="/">Dealerships</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="/about/">About Us</a>
+                    </li>
+                    <!-- Contact Us is set to ACTIVE as per the Task 4 requirements -->
+                    <li class="nav-item">
+                        <a class="nav-link fs-5 active fw-semibold" aria-current="page" href="/contact/">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <div class="contact-card">
+                    
+                    <!-- Top Showroom/Dealership Banner -->
+                    <div class="text-center mb-4">
+                        <!-- Replace placeholder URL with your hosted car lot image -->
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1200&auto=format&fit=crop" 
+                             alt="Dealership Showroom" 
+                             class="banner-img img-fluid">
+                    </div>
+                    
+                    <hr class="my-4" style="border-top: 1px solid #e0e0e0;">
+
+                    <!-- Two-Column Division: Customer Agent Icon and Contact Details -->
+                    <div class="row align-items-center">
+                        
+                        <!-- Left Column: Cyan Support Agent Flat Icon -->
+                        <div class="col-md-5 text-center divider d-flex flex-column align-items-center justify-content-center">
+                            <!-- A simple, clean support headset svg styled in cyan to match the brand -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" fill="#00bcd4" class="bi bi-headset" viewBox="0 0 16 16">
+                                <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866-.5H8a1 1 0 1 1 0-2h.5a1 1 0 0 1 .71-.292c.15-.148.41-.19.613-.19h1.34A1.5 1.5 0 0 0 12.5 12V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"/>
+                            </svg>
+                        </div>
+
+                        <!-- Right Column: Dealership Contact Details (Right-Aligned text to match mockup) -->
+                        <div class="col-md-7 text-end pe-md-5">
+                            
+                            <p class="contact-section-title">Contact Customer Service</p>
+                            <p class="mb-3"><a class="contact-info-text" href="mailto:support@bestcars.com">support@bestcars.com</a></p>
+                            
+                            <p class="contact-section-title">Contact our National Advertising team</p>
+                            <p class="mb-3"><a class="contact-info-text" href="mailto:NationalSales@bestcars.com">NationalSales@bestcars.com</a></p>
+                            
+                            <p class="contact-section-title">Contact our Public Relations team</p>
+                            <p class="mb-3"><a class="contact-info-text" href="mailto:PR@bestcars.com">PR@bestcars.com</a></p>
+                            
+                            <p class="contact-section-title">Contact the bestcars.com offices</p>
+                            <p class="mb-3 fw-bold text-dark">312-611-1111</p>
+                            
+                            <p class="contact-section-title">Become a bestcars.com car dealer</p>
+                            <p class="mb-3"><a class="contact-info-text" href="https://growwithbestcars.com" target="_blank">Visit growwithbestcars.com</a></p>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="/static/bootstrap.min.js"></script>
+</body>
+</html>
