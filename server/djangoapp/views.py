@@ -1,12 +1,13 @@
 # Uncomment the required imports before adding the code
 
-# from django.shortcuts import render
-# from django.http import HttpResponseRedirect, HttpResponse
-# from django.contrib.auth.models import User
-# from django.shortcuts import get_object_or_404, render, redirect
-# from django.contrib.auth import logout
-# from django.contrib import messages
-# from datetime import datetime
+from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib.auth import logout
+from django.contrib import messages
+from datetime import datetime
+
 
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
@@ -39,13 +40,51 @@ def login_user(request):
     return JsonResponse(data)
 
 # Create a `logout_request` view to handle sign out request
-# def logout_request(request):
-# ...
+def logout_request(request):
+    # Terminate the user session on the server
+    logout(request)
+    # Return an empty username JSON response so the frontend knows nobody is logged in
+    data = {"userName": ""}
+    return JsonResponse(data)
 
 # Create a `registration` view to handle sign up request
-# @csrf_exempt
-# def registration(request):
-# ...
+@csrf_exempt
+def registration(request):
+    # Parse the incoming JSON body from the React POST request
+    data = json.loads(request.body)
+    username = data['userName']
+    password = data['password']
+    first_name = data['firstName']
+    last_name = data['lastName']
+    email = data['email']
+    
+    username_exist = False
+    
+    # Check if a user with this username already exists in SQLite
+    try:
+        User.objects.get(username=username)
+        username_exist = True
+    except User.DoesNotExist:
+        logger.info(f"{username} is a new registration")
+        
+    if not username_exist:
+        # Create user object and save to database
+        user = User.objects.create_user(
+            username=username, 
+            first_name=first_name, 
+            last_name=last_name, 
+            password=password, 
+            email=email
+        )
+        
+        # Log the newly created user in to establish their session cookie
+        login(request, user)
+        
+        # Return success payload back to React
+        return JsonResponse({"userName": username, "status": "Authenticated"})
+    else:
+        # Inform frontend if user exists
+        return JsonResponse({"userName": username, "error": "Already Registered"})
 
 # # Update the `get_dealerships` view to render the index page with
 # a list of dealerships
